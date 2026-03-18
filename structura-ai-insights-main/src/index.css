@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 218 55% 10%;
+    --foreground: 0 0% 100%;
+    --card: 218 50% 15%;
+    --card-foreground: 0 0% 100%;
+    --popover: 218 50% 15%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 224 100% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 218 55% 13%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 218 40% 18%;
+    --muted-foreground: 218 20% 60%;
+    --accent: 195 100% 50%;
+    --accent-foreground: 218 55% 10%;
+    --destructive: 0 80% 63%;
+    --destructive-foreground: 0 0% 100%;
+    --warning: 42 100% 50%;
+    --warning-foreground: 0 0% 0%;
+    --success: 152 100% 41%;
+    --success-foreground: 0 0% 100%;
+    --border: 218 30% 22%;
+    --input: 218 30% 22%;
+    --ring: 224 100% 56%;
+    --radius: 0.75rem;
+
+    --sidebar-background: 218 55% 8%;
+    --sidebar-foreground: 218 20% 60%;
+    --sidebar-primary: 224 100% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 218 50% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 218 30% 18%;
+    --sidebar-ring: 224 100% 56%;
+
+    --accent-glow: 195 100% 50%;
+    --font-heading: 'Syne', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Syne', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 rounded-xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+  .glass-card-hover:hover {
+    border-color: hsl(var(--accent) / 0.3);
+    box-shadow: 0 8px 32px rgba(0, 194, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--accent) / 0.5);
+  }
+  .risk-critical {
+    @apply bg-destructive/20 text-destructive border border-destructive/30;
+    animation: pulse-red 1.5s ease-in-out infinite;
+  }
+  .risk-high {
+    @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+    animation: pulse-yellow 3s ease-in-out infinite;
+  }
+  .risk-moderate {
+    @apply bg-orange-500/20 text-orange-400 border border-orange-500/30;
+  }
+  .risk-routine {
+    @apply bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+  }
+  .blueprint-grid {
+    background-image:
+      linear-gradient(hsl(var(--accent) / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--accent) / 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 5px hsl(0 80% 63% / 0.3); }
+  50% { box-shadow: 0 0 20px hsl(0 80% 63% / 0.6); }
+}
+@keyframes pulse-yellow {
+  0%, 100% { box-shadow: 0 0 5px hsl(42 100% 50% / 0.2); }
+  50% { box-shadow: 0 0 15px hsl(42 100% 50% / 0.4); }
+}
+
+/* Leaflet fix */
+.leaflet-container {
+  background: hsl(218 55% 10%) !important;
+}
