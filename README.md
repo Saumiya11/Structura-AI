@@ -56,6 +56,3 @@ Saumiya S
 
 👉 An AI-powered platform for smart bridge monitoring using remote sensing and intelligent analytics.
 
-💡 One-line Summary
-
-👉 An AI-powered platform for smart bridge monitoring using remote sensing and intelligent analytics.
